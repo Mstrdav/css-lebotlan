@@ -1,0 +1,106 @@
+code.highlight {
+  font-weight: bold;
+  color: #0000BB;
+}
+
+code.block {
+  display: inline-block;
+  border: thin dotted #44F;
+  padding: 0.4ex 1.5ex 0.5ex 1.5ex;
+  margin: 0.2ex 1ex 0.2ex 1ex;
+  box-shadow: 1px 1px 1px #CCC;
+  background: rgba(255, 255, 255, 0.5);
+  white-space: pre;
+  vertical-align: middle;
+}
+
+code.page {
+  margin-left: 8%;
+  box-shadow: 3px 3px 3px #DBD;
+  font-size: 11pt;
+  background: #F0FFFF;
+}
+
+span.comment {
+  color: rgba(0, 110, 0, 0.7);
+  font-style: italic;
+  font-family: sans;
+  font-size: 105%;
+  white-space: pre;
+}
+
+span.semi {
+  font-weight: bold;
+  color: rgba(196, 0, 128, 0.6);
+}
+
+span.operator {
+  color: #840;
+  font-weight: bold;
+}
+
+span.highcomment {
+  font-style: italic;
+  font-family: sans;
+  font-size: 105%;
+  white-space: pre;
+  font-size: 110%;
+  font-weight: bold;
+  color: rgba(0, 110, 0, 0.9);
+  margin: 0.25ex 0ex 0.25ex 0ex;
+}
+
+span.highercomment {
+  font-style: italic;
+  font-family: sans;
+  font-size: 105%;
+  white-space: pre;
+  font-size: 105%;
+  font-weight: bold;
+  color: #000;
+  background: #DDD;
+  padding: 0ex 4.5ex 0ex 4.5ex;
+  margin: 0.25ex 0ex 2.5ex -4ex;
+  border: thin solid black;
+}
+
+span.label {
+  font-style: italic;
+  color: #44F;
+}
+
+span.letvar {
+  color: #0000A0;
+  font-style: italic;
+}
+
+span.uident {
+  font-weight: bold;
+  font-size: 110%;
+  color: #080;
+}
+
+span.string, span.char {
+  color: #E22;
+  white-space: pre;
+  font-family: serif;
+  font-size: 92%;
+}
+
+span.kw, code.kw {
+  display: inline;
+  font-weight: bold;
+  color: #600080;
+}
+
+span.type {
+  font-weight: bold;
+  color: #069;
+}
+
+span.fname {
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 110%;
+  color: #050;
+}

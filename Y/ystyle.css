@@ -217,24 +217,45 @@ code {
   margin-left: 3vw;
   font-family: monospace;
   display: block;
-  color: #f5d67b;
+  color: #ffffcc;
 
   tab-size: 2px;
   white-space: pre;
 
   overflow-x: scroll;
+  font-size: 120%;
   padding: 15px 20px 12px 22px;
-  line-height: 1.75;
+  line-height: 1.55;
 }
 
 span.comment {
   font-style: italic;
   color: rgb(128, 139, 150);
+  white-space: pre;
 }
 
 span.kw {
-  color: rgb(203, 67, 53);
-  font-weight: bold;
+  color: rgb(227,99,99);
+}
+
+span.type {
+  color: rgb(203, 128, 53);
+}
+
+span.fname {
+  color: rgb(203, 203, 53);
+}
+
+span.string {
+  color: rgb(53, 203, 128);
+}
+
+span.letvar {
+  color: rgb(128, 203, 53);
+}
+
+span.uident{
+  color: rgb(203, 203, 53);
 }
 
 
