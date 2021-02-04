@@ -211,8 +211,9 @@ footer .pcom a {
 
 /* PAGE DE CODE */
 code {
+  position: relative;
   z-index: 2;
-  background: #000;
+  background: rgba(19,19,19,.8);
   width: min(94vw, 900px);
   border-radius: 12px;
   margin-left: 3vw;
@@ -237,6 +238,40 @@ code * {
   display: inline;
 }
 
+code div {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px;
+  border-radius: 8px;
+  height: 42px;
+  width: 42px;
+  background: #333;
+}
+
+code div.theme {
+  right: 62px;
+}
+
+code div svg {
+  height: 30px;
+  width: 30px;
+  filter: invert(1);
+}
+
+code div.valid {
+  background: #181;
+}
+
+code div.not-valid {
+  background: #811;
+}
+
+code div.valid, code div.not-valid, code div.darken {
+  animation-name: shake;
+  animation-duration: .6s;
+} 
+
 span.comment {
   font-style: italic;
   color: rgb(128, 139, 150);
@@ -244,15 +279,15 @@ span.comment {
 }
 
 span.kw {
-  color: rgb(227,99,99);
-}
-
-span.type {
   color: rgb(203, 128, 53);
 }
 
-span.fname {
+span.type {
   color: rgb(203, 203, 53);
+}
+
+span.fname {
+  color: #72e0d1;
 }
 
 span.string {
@@ -351,4 +386,32 @@ span.uident{
     max-height: 0;
     margin-bottom: 0;
   }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0%);
+  }
+
+  20% {
+    transform: translateX(-5%);
+  }
+
+  40% {
+    transform: translateX(15%);
+  }
+
+  60% {
+    transform: translateX(-15%);
+  }
+
+  80% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+
 }
