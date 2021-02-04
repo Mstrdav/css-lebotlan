@@ -218,7 +218,7 @@ code {
   margin-left: 3vw;
   margin-top: 20px;
   font-family: monospace;
-  display: inline-block;
+  display: block;
   color: #ffffcc;
 
   tab-size: 2;
@@ -240,11 +240,31 @@ code * {
 span.comment {
   font-style: italic;
   color: rgb(128, 139, 150);
+  white-space: pre;
 }
 
 span.kw {
-  color: rgb(203, 67, 53);
-  font-weight: bold;
+  color: rgb(227,99,99);
+}
+
+span.type {
+  color: rgb(203, 128, 53);
+}
+
+span.fname {
+  color: rgb(203, 203, 53);
+}
+
+span.string {
+  color: rgb(53, 203, 128);
+}
+
+span.letvar {
+  color: rgb(128, 203, 53);
+}
+
+span.uident{
+  color: rgb(203, 203, 53);
 }
 
 
