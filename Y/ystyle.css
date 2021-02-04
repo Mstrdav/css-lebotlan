@@ -71,6 +71,7 @@ body:before {
 main {
   min-height: calc(100vh - 420px);
   margin-bottom: 100px;
+  display: block;
 }
 
 .yfold:not(.card) {
@@ -210,21 +211,30 @@ footer .pcom a {
 
 /* PAGE DE CODE */
 code {
-  background: #1b1b1b;
-  max-width: 900px;
-  width: auto;
+  z-index: 2;
+  background: #000;
+  width: min(94vw, 900px);
   border-radius: 12px;
   margin-left: 3vw;
+  margin-top: 20px;
   font-family: monospace;
-  display: block;
-  color: #f5d67b;
+  display: inline-block;
+  color: #ffffcc;
 
-  tab-size: 2px;
+  tab-size: 2;
   white-space: pre;
 
   overflow-x: scroll;
-  padding: 15px 20px 12px 22px;
-  line-height: 1.75;
+  font-size: 120%;
+  padding: 20px 50px 22px 15px;
+  border-bottom: 10px solid #222;
+  line-height: 1.55;
+}
+
+code * {
+  white-space: pre;
+  tab-size: 2px;
+  display: inline;
 }
 
 span.comment {
