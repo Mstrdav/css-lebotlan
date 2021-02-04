@@ -63,7 +63,6 @@ body:before {
   margin-left: 10px;
   padding-bottom: 10px;
   font-weight: lighter;
-  border-bottom: 8px solid #eee;
   display: inline;
 }
 
@@ -227,9 +226,11 @@ code:not(.inline)  {
 
   overflow-x: scroll;
   font-size: 120%;
-  padding: 20px 50px 22px 15px;
-  border-bottom: 10px solid #222;
+  padding: 20px 50px 22px 25px;
+  border-left: 10px solid #444;
   line-height: 1.55;
+
+  transition: all .3s;
 }
 
 code * {
@@ -247,6 +248,7 @@ code div {
   height: 42px;
   width: 42px;
   background: #333;
+  cursor: pointer;
 }
 
 code div.theme {
@@ -302,25 +304,16 @@ span.uident{
   color: rgb(203, 203, 53);
 }
 
-.light code:not(.inline) {
-  z-index: 2;
-  background: black;
-  width: min(94vw, 900px);
-  border-radius: 12px;
-  margin-left: 3vw;
-  margin-top: 20px;
-  font-family: monospace;
-  display: block;
-  color: white;
+code:not(.inline).light {
+  background: rgba(250,250,250,0.8);
+  color: black;
+  border-color: #aaa;
+  transition: all .3s;
+}
 
-  tab-size: 2;
-  white-space: pre;
-
-  overflow-x: scroll;
-  font-size: 120%;
-  padding: 20px 50px 22px 15px;
-  border-bottom: 10px solid #222;
-  line-height: 1.55;
+.light div {
+  background: #aaa;
+  transition: all .3s;
 }
 
 code * {
@@ -331,7 +324,7 @@ code * {
 
 .light span.comment {
   font-style: italic;
-  color: rgb(204, 209, 209);
+  color: #555;
   white-space: pre;
 }
 
