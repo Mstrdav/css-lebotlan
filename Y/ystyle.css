@@ -209,7 +209,7 @@ footer .pcom a {
 
 
 /* PAGE DE CODE */
-code:not(.inline)  {
+code:not(.inline), code:not(.command)  {
   position: relative;
   z-index: 2;
   background: rgba(19,19,19,.8);
@@ -356,7 +356,7 @@ span.file {
   font-weight: bold;
 }
 
-var, samp, code.inline {
+var, samp, code.inline, code.kw, code.command {
 	display: inline-block;
 	padding: 2px 8px;
 	background: #222;
@@ -379,7 +379,7 @@ img.space {
   	margin-bottom: 1.5ex;
   	}
 
-span.lbutton{
+span.lbutton {
   position:relative;
   margin-right: 6px;
 }

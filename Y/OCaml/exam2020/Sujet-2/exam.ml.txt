@@ -1,0 +1,77 @@
+(*** Keep these lines. ***)
+let qfile = "qqs.ml" ;;
+let formatter = Format.(make_formatter (fun _ _ _ -> ()) (fun () -> ())) ;;
+Topdirs.dir_use formatter (if Sys.file_exists qfile then qfile else Sys.getenv "HOME" ^ "/Exam-OCaml/" ^ qfile) ;;
+
+(************************************)
+
+
+(*****  QUESTION 1  *****)
+
+(* Modify this incorrect definition of f1 *)
+let f1 x = failwith "f1 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f1 does not have the expected type. *)
+let () = q1 { ff = f1 } ;;
+
+(*****  QUESTION 2  *****)
+
+(* Modify this incorrect definition of f2 *)
+let f2 x = failwith "f2 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f2 does not have the expected type. *)
+let () = q2 { ff = f2 } ;;
+
+(*****  QUESTION 3  *****)
+
+(* Modify this incorrect definition of f3 *)
+let f3 x = failwith "f3 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f3 does not have the expected type. *)
+let () = q3 { ff = f3 } ;;
+
+(*****  QUESTION 4  *****)
+
+(* Modify this incorrect definition of f4 *)
+let f4 = undone_filter
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f4 does not have the expected type. *)
+let () = q4 { ff = f4 } ;;
+
+(*****  QUESTION 5  *****)
+
+(* Modify this incorrect definition of f5 *)
+let f5 x = failwith "f5 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f5 does not have the expected type. *)
+let () = q5 { ff = f5 } ;;
+
+(*****  QUESTION 6  *****)
+
+(* Modify this incorrect definition of f6 *)
+let f6 x = failwith "f6 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f6 does not have the expected type. *)
+let () = q6 { ff = f6 } ;;
+
+(*****  QUESTION 7  *****)
+
+(* Modify this incorrect definition of f7 *)
+let f7 x = failwith "f7 not done "
+
+;;
+(* ✔✔✔ Check your answer - keep the following line untouched.
+   If you get a type error here, it means that your function f7 does not have the expected type. *)
+let () = q7 { ff = f7 } ;;

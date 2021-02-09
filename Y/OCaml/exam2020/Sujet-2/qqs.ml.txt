@@ -1,0 +1,67 @@
+#use "topfind" ;;
+#require "ocheck" ;;
+
+open Ocheck_base ;;
+open Ocheck ;;
+
+let chk = Checker.auto_init () ;;
+
+
+open Qf1
+type t1 = tf1_4 = { ff: 'a 'b . ('a -> 'b) -> ('b -> string) -> ('a -> string) }
+let q1 : t1 -> unit = qf1_4.out_launch "f1" chk
+let q1_qvalue  = qf1_4.qenum_args    (* int: test index *)
+let q1_invok   = qf1_4.invok         (* int: test index *)
+let q1_arg2s = qf1_4.arg2s
+let q1_res2s = qf1_4.res2s
+
+open Qf1
+type t2 = tf1_2 = { ff: 'a . 'a -> 'a -> 'a list -> 'a list }
+let q2 : t2 -> unit = qf1_2.out_launch "f2" chk
+let q2_qvalue  = qf1_2.qenum_args    (* int: test index *)
+let q2_invok   = qf1_2.invok         (* int: test index *)
+let q2_arg2s = qf1_2.arg2s
+let q2_res2s = qf1_2.res2s
+
+open Qf2
+type t3 = tf2_1 = { ff: 'a . 'a tree -> 'a }
+let q3 : t3 -> unit = qf2_1.out_launch "f3" chk
+let q3_qvalue  = qf2_1.qenum_args    (* int: test index *)
+let q3_invok   = qf2_1.invok         (* int: test index *)
+let q3_arg2s = qf2_1.arg2s
+let q3_res2s = qf2_1.res2s
+
+let pp fmt v = Format.pp_print_string fmt Qf2.(sotree soi v) ;;
+#install_printer pp ;;
+open Qf3
+type t4 = tf3_1 = { ff: (int * int) filter }
+let q4 : t4 -> unit = qf3_1.out_launch "f4" chk
+let q4_qvalue  = qf3_1.qenum_args    (* int: test index *)
+let q4_invok   = qf3_1.invok         (* int: test index *)
+let q4_arg2s = qf3_1.arg2s
+let q4_res2s = qf3_1.res2s
+
+open Qf3
+type t5 = tf3_3 = { ff: 'a . 'a filter -> ('a option) filter }
+let q5 : t5 -> unit = qf3_3.out_launch "f5" chk
+let q5_qvalue  = qf3_3.qenum_args    (* int: test index *)
+let q5_invok   = qf3_3.invok         (* int: test index *)
+let q5_arg2s = qf3_3.arg2s
+let q5_res2s = qf3_3.res2s
+
+open Qf3
+type t6 = tf3_6 = { ff: 'a . 'a filter -> ('a list) filter }
+let q6 : t6 -> unit = qf3_6.out_launch "f6" chk
+let q6_qvalue  = qf3_6.qenum_args    (* int: test index *)
+let q6_invok   = qf3_6.invok         (* int: test index *)
+let q6_arg2s = qf3_6.arg2s
+let q6_res2s = qf3_6.res2s
+
+open Qf2
+type t7 = tf2_3 = { ff: int -> (int * int) list -> int list }
+let q7 : t7 -> unit = qf2_3.out_launch "f7" chk
+let q7_qvalue  = qf2_3.qenum_args    (* int: test index *)
+let q7_invok   = qf2_3.invok         (* int: test index *)
+let q7_arg2s = qf2_3.arg2s
+let q7_res2s = qf2_3.res2s
+
