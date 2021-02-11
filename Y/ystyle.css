@@ -9,6 +9,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 /* styles sur html et body pour faire un fond 'polygon' changeant */
@@ -148,8 +149,6 @@ h1, h2, h3 {
 }
 
 /* style des éléments a l'intérieur des cartes */
-.card {}
-
 .steps {
   list-style: none;
 }
@@ -209,7 +208,6 @@ footer .pcom a {
 /* PAGE DE CODE */
 code {
   background: rgba(19, 19, 19, .8);
-  margin-top: 20px;
   font-family: monospace;
   color: #ffffcc;
   display: inline;
@@ -391,7 +389,7 @@ code * {
 }
 
 .light span.uident {
-  color: rgb(138, 138, 10));
+  color: rgb(138, 138, 10);
 }
 
 span.file {
