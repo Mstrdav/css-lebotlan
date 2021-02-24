@@ -1,4 +1,3 @@
-
 //
 // Show/hide some sections by clicking on the title.
 //
@@ -6,78 +5,83 @@
 //
 
 function saveStatus(id, shown) {
-    if (typeof(Storage) !== "undefined") {
-	localStorage.setItem("yfold-shown-" + id, shown) ;
-    }
+  if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("yfold-shown-" + id, shown);
+  }
 }
 
 // record : (when clicked), record the status in local storage
 function setStatus(id, shown, content, record) {
 
-    // console.log ("setStatus (" + id + ", " + shown + ")") ;
+  // console.log ("setStatus (" + id + ", " + shown + ")") ;
 
-    var span = document.getElementById("arrow-" + id) ;
+  var span = document.getElementById("arrow-" + id);
 
-    if (shown) {
-	content.classList.remove("anim-hide") ;
-        content.classList.remove("hidden") ;
-        span.innerHTML = "&#x25be;" ;
-        if (record) { content.classList.add("anim-show") ; }
-        else { content.classList.add("shown") ; }
+  if (shown) {
+    content.classList.remove("anim-hide");
+    content.classList.remove("hidden");
+    span.innerHTML = "&#x25be;";
+    if (record) {
+      content.classList.add("anim-show");
+    } else {
+      content.classList.add("shown");
     }
-    else {
-        content.classList.remove("anim-show") ;
-        content.classList.remove("shown") ;
-        span.innerHTML = "&#x25b8;" ;
-        if (record) { content.classList.add("anim-hide") ; }
-        else { content.classList.add("hidden") ; }
+  } else {
+    content.classList.remove("anim-show");
+    content.classList.remove("shown");
+    span.innerHTML = "&#x25b8;";
+    if (record) {
+      content.classList.add("anim-hide");
+    } else {
+      content.classList.add("hidden");
     }
+  }
 
-    if (record) { saveStatus(id, shown) ; }
+  if (record) {
+    saveStatus(id, shown);
+  }
 }
 
 // Invoked at load-time once for every yfold section.
 function initYfold(id) {
 
-    // console.log ("initYfold (" + id + ")") ;
+  // console.log ("initYfold (" + id + ")") ;
 
-    // console.log ("unknown " + id)
-    var shown = true ;
-    var content = document.getElementById("content-" + id) ;
+  // console.log ("unknown " + id)
+  var shown = true;
+  var content = document.getElementById("content-" + id);
 
-    // Sets the state according to local storage or default value.
+  // Sets the state according to local storage or default value.
 
-    if (typeof(Storage) !== "undefined") {
-	var local = localStorage.getItem("yfold-shown-" + id) ;
-	// console.log ("using storage value = " + local)
+  if (typeof(Storage) !== "undefined") {
+    var local = localStorage.getItem("yfold-shown-" + id);
+    // console.log ("using storage value = " + local)
 
-	if (local === 'true') {
-	    shown = true ;
-	}
-	else if (local === 'false') {
-	    shown = false ;
-	}
-	else {
-	    // Get default value
-	    var defv = content.getAttribute("data-yfold-default") ;
-	    if (defv === 'hide') {
-		shown = false ;
-	    }
-	    // console.log ("using default value = " + shown)
-	}
+    if (local === 'true') {
+      shown = true;
+    } else if (local === 'false') {
+      shown = false;
+    } else {
+      // Get default value
+      var defv = content.getAttribute("data-yfold-default");
+      if (defv === 'hide') {
+        shown = false;
+      }
+      // console.log ("using default value = " + shown)
     }
+  }
 
-    setStatus(id, shown, content, false) ;
+  setStatus(id, shown, content, false);
 }
 
 // Function invoked when the title is clicked.
 function toggleYfold(id) {
 
-    // console.log ("toggleYfold (" + id + ")") ;
+  // console.log ("toggleYfold (" + id + ")") ;
 
-    var content = document.getElementById("content-" + id) ;
-    var expand = content.classList.contains("anim-hide") || content.classList.contains("hidden") ;
-    setStatus(id, expand, content, true) ;
+  var content = document.getElementById("content-" + id);
+  var expand = content.classList.contains("anim-hide") || content.classList.contains("hidden");
+  setStatus(id, expand, content, true);
 }
 
 /*********************************
@@ -121,10 +125,64 @@ window.onload = function() {
       }
     });
 
-
     snippet.appendChild(img)
     snippet.appendChild(theme)
   } else {
     console.log(snippet.classList);
   }
-};
+
+  if (typeof(Storage) !== "undefined") {
+    var theme = localStorage.getItem("theme");
+    console.log("theme : " + theme)
+
+    if (theme === "/Y/ystyle.css") {
+      css_url = "/Y/ystyle.css";
+    } else if (theme === "/Y/ystyle2.css") {
+      css_url = "/Y/ystyle2.css";
+      changeCSS(css_url, 0)
+    } else {
+      // Get default value
+      css_url = "/Y/ystyle.css";
+    }
+  }
+
+  var toggler = document.createElement("a")
+  toggler.setAttribute("id", "toggler")
+  toggler.style.position = "absolute"
+  toggler.style.top = "12px"
+  toggler.style.right = "12px"
+  toggler.style.padding = "10px"
+  toggler.style.borderRadius = "7px"
+  toggler.style.background = "#335"
+  toggler.style.color = "#eee"
+  toggler.style.zIndex = "12"
+  toggler.innerHTML = "theme"
+  toggler.style.cursor = "pointer"
+  toggler.addEventListener("click", function() {
+    if (css_url == "/Y/ystyle.css") {
+      css_url = "/Y/ystyle2.css";
+    } else {
+      css_url = "/Y/ystyle.css";
+    }
+    changeCSS(css_url, 0)
+  })
+
+  document.body.appendChild(toggler)
+}
+
+function changeCSS(css_file, cssLinkIndex) {
+  if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("theme", css_file);
+  }
+
+  console.log("changing css")
+
+  var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+  var newlink = document.createElement("link");
+  newlink.setAttribute("rel", "stylesheet");
+  newlink.setAttribute("type", "text/css");
+  newlink.setAttribute("href", css_file);
+
+  document.getElementsByTagName("head").item(cssLinkIndex).replaceChild(newlink, oldlink);
+}
