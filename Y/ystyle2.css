@@ -636,6 +636,10 @@ section.yfold.card > .yfold-content > h6
 	border-radius: 6px;
 	}
 
+code div {
+	display: none;
+}
+
 @keyframes appear
 	{
 	0%

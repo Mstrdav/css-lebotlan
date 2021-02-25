@@ -94,41 +94,43 @@ function toggleYfold(id) {
 
 window.onload = function() {
   console.log("DOM loaded.")
-  var snippet = document.getElementsByTagName("code")[0];
-  if ((snippet.classList.value.includes("page")) || (snippet.classList.value.includes("block"))) {
-    console.log(snippet);
+  var snippets = document.getElementsByTagName("code");
+  for (var snippet of snippets) {
+    if ((snippet.classList.value.includes("page")) || (snippet.classList.value.includes("block"))) {
+      console.log(snippet);
 
-    let img = document.createElement('div');
-    img.innerHTML = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M407 128H185C153.52 128 128 153.52 128 185V407C128 438.48 153.52 464 185 464H407C438.48 464 464 438.48 464 407V185C464 153.52 438.48 128 407 128Z" stroke="black" stroke-width="32" stroke-linejoin="round"/><path d="M383.5 128L384 104C383.958 89.1609 378.044 74.9416 367.551 64.4487C357.058 53.9558 342.839 48.0422 328 48H112C95.0416 48.0501 78.792 54.8091 66.8005 66.8005C54.8091 78.792 48.0501 95.0416 48 112V328C48.0422 342.839 53.9558 357.058 64.4487 367.551C74.9416 378.044 89.1609 383.958 104 384H128" stroke="black" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    img.addEventListener('click', function() {
-      console.log(snippet.innerText);
-      navigator.clipboard.writeText(snippet.innerText).then(function() {
-        console.log("copié !");
-        img.classList = "valid"
-      }, function() {
-        console.log("pas copié !");
-        img.classList = "not-valid"
+      let img = document.createElement('div');
+      img.innerHTML = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M407 128H185C153.52 128 128 153.52 128 185V407C128 438.48 153.52 464 185 464H407C438.48 464 464 438.48 464 407V185C464 153.52 438.48 128 407 128Z" stroke="black" stroke-width="32" stroke-linejoin="round"/><path d="M383.5 128L384 104C383.958 89.1609 378.044 74.9416 367.551 64.4487C357.058 53.9558 342.839 48.0422 328 48H112C95.0416 48.0501 78.792 54.8091 66.8005 66.8005C54.8091 78.792 48.0501 95.0416 48 112V328C48.0422 342.839 53.9558 357.058 64.4487 367.551C74.9416 378.044 89.1609 383.958 104 384H128" stroke="black" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      img.addEventListener('click', function() {
+        console.log(snippet.innerText);
+        navigator.clipboard.writeText(snippet.innerText).then(function() {
+          console.log("copié !");
+          img.classList = "valid"
+        }, function() {
+          console.log("pas copié !");
+          img.classList = "not-valid"
+        });
       });
-    });
 
-    let theme = document.createElement('div');
-    theme.setAttribute("class", "theme");
-    theme.innerHTML = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M256 464C370.875 464 464 370.875 464 256C464 141.125 370.875 48 256 48C141.125 48 48 141.125 48 256C48 370.875 141.125 464 256 464Z" stroke="black" stroke-width="32" stroke-linejoin="round"/><path d="M256 464C141.12 464 48 370.88 48 256C48 141.12 141.12 48 256 48V464Z" fill="black"/></svg>';
+      let theme = document.createElement('div');
+      theme.setAttribute("class", "theme");
+      theme.innerHTML = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M256 464C370.875 464 464 370.875 464 256C464 141.125 370.875 48 256 48C141.125 48 48 141.125 48 256C48 370.875 141.125 464 256 464Z" stroke="black" stroke-width="32" stroke-linejoin="round"/><path d="M256 464C141.12 464 48 370.88 48 256C48 141.12 141.12 48 256 48V464Z" fill="black"/></svg>';
 
-    theme.addEventListener('click', function() {
-      snippet.classList.toggle("light");
-      console.log("theme switched !");
-      if (theme.classList == "theme darken") {
-        theme.classList = "theme lighten";
-      } else {
-        theme.classList = "theme darken";
-      }
-    });
+      theme.addEventListener('click', function() {
+        snippet.classList.toggle("light");
+        console.log("theme switched !");
+        if (theme.classList == "theme darken") {
+          theme.classList = "theme lighten";
+        } else {
+          theme.classList = "theme darken";
+        }
+      });
 
-    snippet.appendChild(img)
-    snippet.appendChild(theme)
-  } else {
-    console.log(snippet.classList);
+      snippet.appendChild(img)
+      snippet.appendChild(theme)
+    } else {
+      console.log(snippet.classList);
+    }
   }
 
   if (typeof(Storage) !== "undefined") {
