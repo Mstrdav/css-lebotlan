@@ -160,7 +160,6 @@ window.onload = function() {
     option.value = opt;
     option.text = "style " + i.toString();
     i++;
-    option.style.color = "white";
     console.log(option)
     toggler.appendChild(option);
     console.log("added option")
