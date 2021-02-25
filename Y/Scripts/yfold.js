@@ -136,31 +136,48 @@ window.onload = function() {
   if (typeof(Storage) !== "undefined") {
     var theme = localStorage.getItem("theme");
     console.log("theme : " + theme)
-
-    if (theme === "/Y/ystyle.css") {
-      css_url = "/Y/ystyle.css";
-    } else if (theme === "/Y/ystyle2.css") {
-      css_url = "/Y/ystyle2.css";
-      changeCSS(css_url, 0)
-    } else {
+    if (theme == "null" || theme == null || theme == "undefined" || theme == undefined) {
       // Get default value
       css_url = "/Y/ystyle.css";
+    } else {
+      css_url = theme;
+      changeCSS(css_url, 0)
     }
   }
 
-  var toggler = document.createElement("a")
-  toggler.setAttribute("id", "toggler")
+  var toggler = document.createElement("select")
+
+  var liste = ["/Y/ystyle.css","/Y/ystyle2.css"];
+
+  toggler.id = "toggler";
+  document.body.appendChild(toggler)
+
+  let i = 1;
+
+  //Create and append the options
+  for (let opt of liste) {
+    let option = document.createElement("option");
+    option.value = opt;
+    option.text = "style " + i.toString();
+    i++;
+    option.style.color = "white";
+    console.log(option)
+    toggler.appendChild(option);
+    console.log("added option")
+  }
+
   toggler.style.position = "absolute"
-  toggler.style.top = "12px"
-  toggler.style.right = "12px"
+  toggler.style.top = "18px"
+  toggler.style.right = "15px"
   toggler.style.padding = "10px"
   toggler.style.borderRadius = "7px"
   toggler.style.background = "#335"
+  toggler.style.border = "none"
+  toggler.style.appearance = "none"
   toggler.style.color = "#eee"
   toggler.style.zIndex = "12"
-  toggler.innerHTML = "theme"
   toggler.style.cursor = "pointer"
-  toggler.addEventListener("click", function() {
+  toggler.addEventListener("change", function() {
     if (css_url == "/Y/ystyle.css") {
       css_url = "/Y/ystyle2.css";
     } else {
@@ -168,8 +185,6 @@ window.onload = function() {
     }
     changeCSS(css_url, 0)
   })
-
-  document.body.appendChild(toggler)
 }
 
 function changeCSS(css_file, cssLinkIndex) {
