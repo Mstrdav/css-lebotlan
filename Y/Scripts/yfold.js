@@ -133,6 +133,8 @@ window.onload = function() {
     }
   }
 
+  var css_url = "/Y/ystyle.css"
+
   if (typeof(Storage) !== "undefined") {
     var theme = localStorage.getItem("theme");
     console.log("theme : " + theme)
@@ -160,9 +162,12 @@ window.onload = function() {
     option.value = opt;
     option.text = "style " + i.toString();
     i++;
-    console.log(option)
+    if (option.value == css_url) {
+      option.selected = "selected"
+    }
+    option.style.outline = "none"
+    option.style.border = "none"
     toggler.appendChild(option);
-    console.log("added option")
   }
 
   toggler.style.position = "absolute"
@@ -176,12 +181,9 @@ window.onload = function() {
   toggler.style.color = "#eee"
   toggler.style.zIndex = "12"
   toggler.style.cursor = "pointer"
+  toggler.style.outline = "none"
   toggler.addEventListener("change", function() {
-    if (css_url == "/Y/ystyle.css") {
-      css_url = "/Y/ystyle2.css";
-    } else {
-      css_url = "/Y/ystyle.css";
-    }
+    css_url = toggler.value
     changeCSS(css_url, 0)
   })
 }
@@ -191,7 +193,7 @@ function changeCSS(css_file, cssLinkIndex) {
     localStorage.setItem("theme", css_file);
   }
 
-  console.log("changing css")
+  console.log("changing css to " + css_file)
 
   var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
 
