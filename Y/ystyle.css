@@ -1,8 +1,8 @@
 /* POLICES */
-/* @font-face {
+@font-face {
   font-family: 'Poppins';
-  src: url('https://fontlibrary.org//assets/fonts/poppins/fed70e8826194d3ab847c777f43c10ea/3352653dedd571bbc490c8be132b38cd/PoppinsLight.ttf') format('truetype');
-} */
+  src: url('/Y/Poppins-Light.ttf') format('truetype');
+}
 
 /* règles generéales */
 * {
