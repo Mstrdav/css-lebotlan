@@ -146,16 +146,22 @@ window.onload = function() {
     console.log("theme : " + theme)
     if (theme == "null" || theme == null || theme == "undefined" || theme == undefined) {
       // Get default value
-      css_url = "/Y/ystyle.css";
+      css_url = "Y/ystyle.css";
     } else {
       css_url = theme;
-      changeCSS(css_url, 0)
     }
+
+    let position = window.location.href.split("Y")[1].split("/").length - 1
+    for (let i = 1; i<=position; i++) {
+      css_url = "../" + css_url
+    }
+
+    changeCSS(css_url, 0)
   }
 
   var toggler = document.createElement("select")
 
-  var liste = ["/Y/ystyle.css","/Y/ystyle2.css"];
+  var liste = ["Y/ystyle.css","Y/ystyle2.css"];
 
   toggler.id = "toggler";
   document.body.appendChild(toggler)
@@ -168,7 +174,7 @@ window.onload = function() {
     option.value = opt;
     option.text = "style " + i.toString();
     i++;
-    if (option.value == css_url) {
+    if (option.value == css_url.split("../")[css_url.split("../").length - 1]) {
       option.selected = "selected"
     }
     option.style.outline = "none"
@@ -190,6 +196,10 @@ window.onload = function() {
   toggler.style.outline = "none"
   toggler.addEventListener("change", function() {
     css_url = toggler.value
+    let position = window.location.href.split("Y")[1].split("/").length - 1
+    for (let i = 1; i<=position; i++) {
+      css_url = "../" + css_url
+    }
     changeCSS(css_url, 0)
   })
 }
