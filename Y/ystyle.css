@@ -4,13 +4,6 @@
   src: url('/Y/Poppins-Light.ttf') format('truetype');
 }
 
-/* VIEWPORT */
-@viewport {
-    width: device-width;
-    initial-scale: 1.0;
-    zoom: 1;
-}
-
 /* règles generéales */
 * {
   margin: 0px;

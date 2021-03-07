@@ -94,6 +94,12 @@ function toggleYfold(id) {
 
 window.onload = function() {
   console.log("DOM loaded.")
+
+  var meta = document.createElement('meta')
+  meta.setAttribute('name', 'viewport')
+  meta.setAttribute('content', 'width=device-width, initial-scale=1.0')
+  document.querySelector('head').appendChild(meta)
+
   var snippets = document.getElementsByTagName("code");
   for (var snippet of snippets) {
     if ((snippet.classList.value.includes("page")) || (snippet.classList.value.includes("block"))) {
