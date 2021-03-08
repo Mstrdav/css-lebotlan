@@ -151,9 +151,11 @@ window.onload = function() {
       css_url = theme;
     }
 
-    let position = window.location.href.split("Y")[1].split("/").length - 1
-    for (let i = 1; i<=position; i++) {
-      css_url = "../" + css_url
+    if (window.location.href.split("Y").length >1 ) {
+      let position = window.location.href.split("Y")[1].split("/").length - 1
+      for (let i = 1; i<=position; i++) {
+        css_url = "../" + css_url
+      }
     }
 
     changeCSS(css_url, 0)
@@ -196,10 +198,13 @@ window.onload = function() {
   toggler.style.outline = "none"
   toggler.addEventListener("change", function() {
     css_url = toggler.value
-    let position = window.location.href.split("Y")[1].split("/").length - 1
-    for (let i = 1; i<=position; i++) {
-      css_url = "../" + css_url
+    if (window.location.href.split("Y").length > 1) {
+      let position = window.location.href.split("Y")[1].split("/").length - 1
+      for (let i = 1; i<=position; i++) {
+        css_url = "../" + css_url
+      }
     }
+    
     changeCSS(css_url, 0)
   })
 }
