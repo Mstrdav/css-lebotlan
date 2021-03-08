@@ -103,8 +103,6 @@ window.onload = function() {
   var snippets = document.getElementsByTagName("code");
   for (var snippet of snippets) {
     if ((snippet.classList.value.includes("page")) || (snippet.classList.value.includes("block"))) {
-      console.log(snippet);
-
       let img = document.createElement('div');
       img.innerHTML = '<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M407 128H185C153.52 128 128 153.52 128 185V407C128 438.48 153.52 464 185 464H407C438.48 464 464 438.48 464 407V185C464 153.52 438.48 128 407 128Z" stroke="black" stroke-width="32" stroke-linejoin="round"/><path d="M383.5 128L384 104C383.958 89.1609 378.044 74.9416 367.551 64.4487C357.058 53.9558 342.839 48.0422 328 48H112C95.0416 48.0501 78.792 54.8091 66.8005 66.8005C54.8091 78.792 48.0501 95.0416 48 112V328C48.0422 342.839 53.9558 357.058 64.4487 367.551C74.9416 378.044 89.1609 383.958 104 384H128" stroke="black" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/></svg>';
       img.addEventListener('click', function() {
@@ -135,7 +133,7 @@ window.onload = function() {
       snippet.appendChild(img)
       snippet.appendChild(theme)
     } else {
-      console.log(snippet.classList);
+      console.log("nothing here");
     }
   }
 
@@ -147,8 +145,10 @@ window.onload = function() {
     if (theme == "null" || theme == null || theme == "undefined" || theme == undefined) {
       // Get default value
       css_url = "Y/ystyle.css";
+      console.log("bidip");
     } else {
-      css_url = theme;
+      console.log("css url :" + css_url);
+      css_url = theme.split("../")[theme.split("../").length - 1]
     }
 
     if (window.location.href.split("Y").length >1 ) {
@@ -204,7 +204,7 @@ window.onload = function() {
         css_url = "../" + css_url
       }
     }
-    
+
     changeCSS(css_url, 0)
   })
 }
