@@ -117,6 +117,22 @@ main {
   overflow: hidden;
 }
 
+aside.yfold {
+  margin: 20px 0;
+  border-radius: 12px;
+}
+
+aside .yfold-title, .card .yfold-title {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  padding: 0px;
+}
+
+aside .yfold-content, .card .yfold-content {
+  padding: min(40px, 3vw);
+}
+
 h1, h2, h3 {
   font-family: "Poppins", sans-serif;
   font-weight: lighter;
@@ -129,9 +145,9 @@ h4, h5 {
 }
 
 /* Elements qui s'animent, se plient et se déplient */
-.anim-hide {
-  padding-top: 0;
-  padding-bottom: 0;
+.anim-hide, aside .anim-hide {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   animation-name: disappear;
   animation-duration: 0.75s;
   max-height: 0;
@@ -140,7 +156,7 @@ h4, h5 {
 }
 
 .hidden {
-  padding-top: 0;
+  padding-top: 0 !important;
   padding-bottom: 0;
   max-height: 0;
   margin: 0;
@@ -410,17 +426,6 @@ pre {
 span.lbutton {
   position: relative;
   margin-right: 6px;
-}
-
-aside.yfold {
-  margin: 20px 0;
-  border-radius: 12px;
-}
-
-aside .yfold-title, .card .yfold-title {
-  color: black;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 100;
 }
 
 img.space {
